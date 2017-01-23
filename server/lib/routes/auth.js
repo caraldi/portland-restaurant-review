@@ -37,3 +37,31 @@ router.post('/signup', jsonParser, (req, res) => {
     });
 });
 
+router.post('/signin', jsonParser, (req, res) => {
+  const {username, password} = req.body;
+  delete req.body;
+
+  User.findOne({username})
+    .then(user => {
+      if(!user) {
+        return res.status(400).json({
+          msg: 'Unauthorized',
+          reason: 'No username ' + username
+        });
+      }
+
+      token.sign(user).then(token => res.json({token}));
+    })
+    .catch(err => {
+      res.status(500).json({
+        msg: 'Invalid',
+        reason: err
+      });
+    });
+});
+
+router.get('/verify', ensureAuth, (req, res) => {
+  res.status(200).send({success: true});
+});
+
+module.exports = router;
