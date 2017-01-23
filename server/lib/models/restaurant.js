@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const schema = new Schema({
   name: {type: String, required: true},
-  neighborhood: {type: Schema.Types.ObjectId, ref: 'Neighborhood', required: true},
+  neighborhoodId: {type: Schema.Types.ObjectId, ref: 'Neighborhood', required: true},
   address: {
     street: {type: String, required: true}, 
     city: {type: String, required: true}, 
