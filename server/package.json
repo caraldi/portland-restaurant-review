@@ -1,0 +1,31 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "MONGODB_URI=mongodb://localhost/restaurant-review-test mocha",
+    "test:debug": "MONGODB_URI=mongodb://localhost/restaurant-review-test mocha --debug-brk",
+    "test:watch": "MONGODB_URI=mongodb://localhost/restaurant-review-test nodemon --exec mocha",
+    "start": "nodemon server.js"
+  },
+  "author": "Caitlin Araldi",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
+    "eslint": "^3.14.0",
+    "mocha": "^3.2.0",
+    "nodemon": "^1.11.0"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.0",
+    "body-parser": "^1.16.0",
+    "cors": "^2.8.1",
+    "express": "^4.14.0",
+    "jsonwebtoken": "^7.2.1",
+    "mongoose": "^4.7.7",
+    "morgan": "^1.7.0"
+  }
+}

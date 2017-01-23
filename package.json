@@ -1,0 +1,19 @@
+{
+  "name": "portland-restaurant-review",
+  "version": "1.0.0",
+  "description": "App tracking restaurants and user ratings by Portland neighborhood",
+  "main": "index.js",
+  "scripts": {
+    "test": "cd app && npm i && npm test && cd ../server && npm i && npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/caraldi/portland-restaurant-review.git"
+  },
+  "author": "Caitlin Araldi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/caraldi/portland-restaurant-review/issues"
+  },
+  "homepage": "https://github.com/caraldi/portland-restaurant-review#readme"
+}
