@@ -25,7 +25,9 @@ app.use(errorHandler);
 app.use(express.static('./public'));
 
 app.use('/api/auth', auth);
-app.use('/api/users', ensureAuth, user);
+app.use('/api/neighborhoods', neighborhoods);
+app.use('/api/restaurants', restaurants);
 app.use('/api/reviews', ensureAuth, reviews);
+app.use('/api/users', ensureAuth, users);
 
 module.exports = app;

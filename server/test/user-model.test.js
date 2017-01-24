@@ -36,5 +36,5 @@ describe('User model', () => {
       assert.isOk(err, 'Password is required');
       done();
     });
-  })
-})
+  });
+});
