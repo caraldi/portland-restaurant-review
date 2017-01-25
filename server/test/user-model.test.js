@@ -21,7 +21,7 @@ describe('User model', () => {
   });
 
   it('Username is required', done => {
-    const user = new User({password: testpass});
+    const user = new User({password: 'testpass'});
 
     user.validate(err => {
       assert.isOk(err, 'Username is required');
@@ -30,7 +30,7 @@ describe('User model', () => {
   });
 
   it('Password is required', done => {
-    const user = new User({username: testuser});
+    const user = new User({username: 'testuser'});
 
     user.validate(err => {
       assert.isOk(err, 'Password is required');
