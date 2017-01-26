@@ -1,0 +1,15 @@
+<section ng-class="$ctrl.styles.neighborhoods">
+  <div class="neighborhood-list">
+    <select
+      <li ng-model="$ctrl.selected" ng-change="$ctrl.setNeighborhood(event)" ng-options="neighborhood._id as neighborhood.name for neighborhood in $ctrl.neighborhoods">
+    </select>
+  </div>
+
+  <div class="add-neighborhood">
+    <add-new inline="true" add="$ctrl.add">
+      <input ng-model="$ctrl.newNeighborhood.name">
+    </add-new>
+  </div>
+  
+  <ui-view></ui-view>
+</section>
