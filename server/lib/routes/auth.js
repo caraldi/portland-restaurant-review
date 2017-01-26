@@ -60,7 +60,7 @@ router.post('/signin', jsonParser, (req, res) => {
     });
 });
 
-router.get('/verify', ensureAuth, (req, res) => {
+router.get('/validate', ensureAuth, (req, res) => {
   res.status(200).send({success: true});
 });
 
