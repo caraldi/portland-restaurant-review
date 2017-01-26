@@ -10,7 +10,8 @@ const ensureAuth = require('./auth/ensure-auth')();
 
 const auth = require('./routes/auth');
 const users = require('./routes/users');
-const reviews = require('./routes/reviews');
+const neighborhoods = require('./routes/neighborhoods');
+const restaurants = require('./routes/restaurants');
 
 
 app.use(morgan('dev'));
