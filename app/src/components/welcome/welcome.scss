@@ -1,0 +1,60 @@
+@import 'colors';
+@import 'fonts';
+
+:local(.welcome) {
+  margin: 0;
+
+  header {
+    display: inline-block;
+    margin: 0;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: $grey;
+  }
+  nav ul {
+    box-sizing: border-box;
+    text-align: left;
+    font-family: $content;
+    font-size: 1em;
+    position: absolute;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  
+    li {
+      float: right;
+      margin: 4% 4% 0 0;
+      position: relative;
+      display: block;
+      color: $grey;
+    }
+    li:hover {
+      color: $green;
+    }
+    li ul {
+      background: $background;
+      list-style: none;
+      padding: 0;
+      display: none;
+      li {
+        padding: 6px;
+        float: none;
+        white-space: nowrap;
+        color: $black;
+      }
+    }
+    li:hover ul {
+      display: block;
+    }
+    li:hover li {
+      background: $teal;
+    }
+    li:hover ul li {
+      text-decoration: none;
+      background: $teal;
+    }
+  }
+}
