@@ -28,7 +28,17 @@ export default function routes($stateProvider, $urlRouterProvider) {
   });
 
   $stateProvider.state({
-
+    name: 'neighborhoods.neighborhood',
+    url: '/{id}',
+    abstract: true,
+    resolve: {
+      id: ['$transition$', t => t.params().id],
+      neighborhood: ['neighborhoodService', '$transition$', (Neighborhood, t) => {
+        return Neighborhood.get({id: t.params().id}).$promise;
+      }],
+      restaurants: ['neighborhood', n => n.restaurants]
+    },
+    component: neighborhood
   });
 
   $urlRouterProvider.otherwise('/welcome/about');
