@@ -8,7 +8,7 @@ module.exports = {
   target: 'web', 
   entry: './src/app.js',
   output: {
-    path: '../server/public',
+    path: './build',
     filename: 'main.js'
   },
   devtool: 'source-map',
