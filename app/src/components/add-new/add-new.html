@@ -1,0 +1,6 @@
+<section ng-class="{inline: $ctrl.inline}">
+  <form ng-class="{inline: $ctrl.inline}" ng-submit="$ctrl.submit()">
+    <div ng-class="{inline: $ctrl.inline}" ng-transclude></div>
+    <button>{{$ctrl.prompt || "add"}}</button>
+  </form>
+</section>
