@@ -3,7 +3,9 @@ import styles from './welcome.scss';
 
 export default {
   template,
-  bindings: {pets: '<'},
+  bindings: {
+    restaurants: '<'
+  },
   controller
 };
 
