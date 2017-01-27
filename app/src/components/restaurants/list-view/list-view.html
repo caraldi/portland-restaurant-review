@@ -1,0 +1,9 @@
+<ul ng-class="$ctrl.styles.list">
+  <li ng-repeat="restaurant in $ctrl.restaurants">
+    <div class="name">
+      {{restaurant.name}}
+      {{restaurant.avg}}
+    </div>
+    <button ng-click="$ctrl.parent.remove(restaurant)">-</button>
+  </li>
+</ul>

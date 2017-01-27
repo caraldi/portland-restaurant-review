@@ -1,0 +1,19 @@
+<section>
+  <div>
+    <h2>{{$ctrl.neighborhood.name}}</h2>
+    <button ng-click="$ctrl.removeNeighborhood()">Remove</button>
+  </div>
+
+  <ui-view></ui-view>
+
+  <div>
+    <h3>Track new restaurant in {{$ctrl.neighborhood.name}}</h3>
+
+    <add-new add="$ctrl.add">
+      <label ng-click="$ctrl.alert()">Name</label>
+        <input type="text" ng-model="$ctrl.newNeighborhood.name">
+      <label>Quadrant</label>
+        <input type="text" ng-model="$ctrl.newNeighborhood.quadrant">
+    </add-new>
+  </div>
+</section>

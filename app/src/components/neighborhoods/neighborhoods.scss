@@ -1,0 +1,12 @@
+@import 'colors';
+@import 'fonts';
+
+:local(.neighborhoods) {
+  position: relative;
+
+  .add-neighborhood {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}
