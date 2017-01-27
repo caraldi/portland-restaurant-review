@@ -22,7 +22,7 @@ export default function routes($stateProvider, $urlRouterProvider) {
     params: {selected: {dynamic: true}},
     resolve: {
       neighborhoods: ['neighborhoodService', Neighborhood => Neighborhood.query().$promise],
-      selected: ['$transition$', t => t/params().id]
+      selected: ['$transition$', t => t.params().id]
     },
     component: 'neighborhoods'
   });
@@ -38,7 +38,7 @@ export default function routes($stateProvider, $urlRouterProvider) {
       }],
       restaurants: ['neighborhood', n => n.restaurants]
     },
-    component: neighborhood
+    component: 'neighborhood'
   });
 
   $urlRouterProvider.otherwise('/welcome/about');

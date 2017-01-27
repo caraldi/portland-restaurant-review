@@ -27,4 +27,4 @@ function interceptor($window, tokenService, $state) {
       return Promise.reject(response);
     }
   };
-};
+}
