@@ -29,7 +29,7 @@ export default function routes($stateProvider, $urlRouterProvider) {
 
   $stateProvider.state({
     name: 'neighborhoods.neighborhood',
-    url: '/{id}',
+    url: '/neighborhoods/{id}',
     abstract: true,
     resolve: {
       id: ['$transition$', t => t.params().id],
@@ -39,6 +39,31 @@ export default function routes($stateProvider, $urlRouterProvider) {
       restaurants: ['neighborhood', n => n.restaurants]
     },
     component: 'neighborhood'
+  });
+
+  $stateProvider.state({
+    name: 'restaurants',
+    url: '/restaurants',
+    params: {selected: {dynamic: true}},
+    resolve: {
+      restaurants: ['restaurantService', Restaurant => Restaurant.query().$promise],
+      selected: ['$transition$', t => t.params().id]
+    },
+    component: 'restaurants'
+  });
+
+  $stateProvider.state({
+    name: 'restaurants.restaurant',
+    url: '/restaurants/{id}',
+    abstract: true,
+    resolve: {
+      id: ['$transition$', t => t.params().id],
+      restaurant: ['restaurantService', '$transition$', (Restaurant, t) => {
+        return Restaurant.get({id: t.params().id}).$promise;
+      }],
+      restaurants: ['restaurant', n => n.restaurants]
+    },
+    component: 'restaurant'
   });
 
   $urlRouterProvider.otherwise('/welcome/about');

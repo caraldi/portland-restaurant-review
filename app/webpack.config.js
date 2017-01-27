@@ -6,7 +6,7 @@ const cssExtract = new ExtractTextPlugin('main.css');
 
 module.exports = {
   target: 'web', 
-  entry: './src/main.js',
+  entry: './src/app.js',
   output: {
     path: '../server/public',
     filename: 'main.js'

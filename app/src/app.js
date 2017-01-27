@@ -4,32 +4,31 @@ import components from './components';
 import services from './services';
 
 import animate from 'angular-animate';
-import resource from 'angular-resource';
 import uiRouter from 'angular-ui-router';
 import defaultRoute from 'angular-ui-router-default';
 
 import 'angular-ui-router/release/stateEvents';
-import 'angular-xeditable';
+
+import resource from 'angular-resource';
 
 import dialog from 'ng-dialog';
-import 'ng-dialog/css/ngDialong.css';
+import 'ng-dialog/css/ngDialog.css';
 import 'ng-dialog/css/ngDialog-theme-default.css';
 
 
 import http from './http';
-import routes from './routes';
 import auth from './auth';
+import routes from './routes';
 
-const app = angular.module('reviewApp', [
+const app = angular.module('myApp', [
   components, 
   services,
   animate,
   uiRouter,
-  angular.module('ui.router.state.events').name,
   defaultRoute,
+  angular.module('ui.router.state.events').name,
   resource,
-  dialog,
-  'xeditable'
+  dialog
 ]);
 
 app.filter('titleCase', function() {
