@@ -3,7 +3,10 @@ import styles from './neighborhoods.scss';
 
 export default {
   template,
-  bindings: {neighborhoods: '<', selected: '='},
+  bindings: {
+    neighborhoods: '<', 
+    selected: '='
+  },
   controller
 };
 
