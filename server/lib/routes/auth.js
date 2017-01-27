@@ -50,6 +50,13 @@ router.post('/signin', jsonParser, (req, res) => {
         });
       }
 
+      if(!user.compareHash(password)) {
+        return res.status(400).json({
+          msg: 'Unauthorized',
+          reason: 'Invalid password'
+        });
+      }
+
       token.sign(user).then(token => res.json({token}));
     })
     .catch(err => {
