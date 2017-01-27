@@ -1,11 +1,13 @@
 import template from './app.html';
-import styles from './app.scss';
+import './app.scss';
 
 export default {
   template,
   controller
 };
 
-function controller() {
-  this.styles = styles;
+controller.$inject = ['$state'];
+
+function controller($state) {
+  this.goToNeighborhoods = () => $state.go('neighborhoods');
 }

@@ -1,0 +1,10 @@
+<section ng-class="$ctrl.styles.header">
+  <h1>PDXEats</h1>
+  <nav>
+    <ul>
+      <li ui-sref="welcome.about">About</li>
+      <li ng-if="$ctrl.isAuthenticated()" ui-sref="neighborhoods" >Neighborhoods</li>
+      <li ng-if="$ctrl.isAuthenticated()" ui-sref="welcome" ng-click="$ctrl.logout()">Logout</li>
+    </ul>
+  </nav>
+</section>
