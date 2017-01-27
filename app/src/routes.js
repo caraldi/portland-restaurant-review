@@ -4,34 +4,44 @@ export default function routes($stateProvider, $urlRouterProvider) {
   $stateProvider.state({
     name: 'welcome',
     url: '/welcome',
-    data: {public: true},
-    abstract: true,
-    default: '.about',
-    component: 'welcome'
+    data: {
+      public: true
+    },
+    views: {
+      main: {
+        component: 'welcome'
+      }
+    }
   });
 
   $stateProvider.state({
-    name: 'welcome.about',
-    url: '/about',
-    component: 'welcomeAbout'
-  });
-
-  $stateProvider.state({
-    name: 'neighborhoods',
+    name: 'portland',
     url: '/neighborhoods',
-    params: {selected: {dynamic: true}},
+    params: {
+      selected: {
+        dynamic: true
+      }
+    },
     resolve: {
       neighborhoods: ['neighborhoodService', Neighborhood => Neighborhood.query().$promise],
       selected: ['$transition$', t => t.params().id]
     },
-    component: 'neighborhoods'
+    component: 'neighborhoods',
+    views: {
+      header: {
+        component: 'neighborhoodsHeader'
+      },
+      main: {
+        component: 'neighborhoods'
+      }
+    }
   });
 
   $stateProvider.state({
-    name: 'neighborhoods.neighborhood',
+    name: 'portland.neighborhood',
     url: '/neighborhoods/{id}',
     abstract: true,
-    default: '.detail',
+    default: '.list',
     resolve: {
       id: ['$transition$', t => t.params().id],
       neighborhood: ['neighborhoodService', '$transition$', (Neighborhood, t) => {
@@ -43,16 +53,16 @@ export default function routes($stateProvider, $urlRouterProvider) {
   });
 
   $stateProvider.state({
-    name: 'neighborhoods.neighborhood.detail',
+    name: 'portland.neighborhood.detail',
     url: '/restaurants/{id}',
     component: 'detailView'
   });
 
   $stateProvider.state({
-    name: 'neighborhoods.neighborhood.list',
+    name: 'portland.neighborhood.list',
     url: '/restaurants/all',
     component: 'listView'
   });
 
-  $urlRouterProvider.otherwise('/welcome/about');
+  $urlRouterProvider.otherwise('/welcome');
 }

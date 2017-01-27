@@ -2,7 +2,8 @@ import template from './app-header.html';
 import styles from './app-header.scss';
 
 export default {
-  template, 
+  template,
+  transclude: true, 
   controller
 };
 

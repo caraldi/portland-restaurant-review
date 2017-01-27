@@ -4,7 +4,7 @@
 :local(.header) {
   display: inline-block;
   margin: 0;
-  position: absolute;
+  position: relative;
   width: 100%;
   top: 0;
   left: 0;
@@ -12,7 +12,7 @@
   background-color: $grey;
   nav ul {
     box-sizing: border-box;
-    text-align: left;
+    text-align: right;
     font-family: $content;
     font-size: 1em;
     position: absolute;
@@ -29,5 +29,12 @@
     li:hover {
       color: $green;
     }
+  }
+  .custom-headers {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 300px;
+    text-align: right;
   }
 }
