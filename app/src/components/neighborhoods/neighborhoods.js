@@ -30,7 +30,7 @@ function controller(Neighborhood, $state) {
 
   this.setNeighborhood = () => {
     if (!this.selected) return;
-    $state.go('neighborhoods.neighborhood', {id: this.selected});
+    $state.go('portland.neighborhood', {id: this.selected});
   };
 
   this.add = () => {

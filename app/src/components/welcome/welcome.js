@@ -3,17 +3,9 @@ import styles from './welcome.scss';
 
 export default {
   template,
-  bindings: {
-    restaurants: '<'
-  },
   controller
 };
 
-controller.$inject = ['userService'];
-
-function controller(userService) {
+function controller() {
   this.styles = styles;
-  
-  this.logout = () => userService.logout();
-  this.isAuthenticated = () => userService.isAuthenticated();
 }

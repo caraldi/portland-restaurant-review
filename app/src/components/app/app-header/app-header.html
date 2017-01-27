@@ -1,13 +1,19 @@
 <section ng-class="$ctrl.styles.header">
-  <h1>PDXEats</h1>
-  <nav>
-    <ul>
-      <li ui-sref="welcome">Home</li>
-      <li ng-if="!$ctrl.isAuthenticated()" ui-sref="neighborhoods" >Signin</li>
-      <li ng-if="$ctrl.isAuthenticated()" ui-sref="neighborhoods" >Neighborhoods</li>
-      <li ng-if="$ctrl.isAuthenticated()" ui-sref="welcome" ng-click="$ctrl.logout()">Logout</li>
-    </ul>
-  </nav>
-  
-  <section class="custom-headers" ng-transclude></section>
+  <header>
+    <div>
+      <h1>PDXEats</h1>
+      <h2>Neighborhood restaurant review</h2>
+    </div>
+
+    <nav>
+      <ul>
+        <li ui-sref="welcome">HOME</li>
+        <li ng-if="!$ctrl.isAuthenticated()" ui-sref="neighborhoods" >SIGNIN</li>
+        <li ng-if="$ctrl.isAuthenticated()" ui-sref="neighborhoods" >NEIGHBORHOODS</li>
+        <li ng-if="$ctrl.isAuthenticated()" ui-sref="welcome" ng-click="$ctrl.logout()">LOGOUT</li>
+      </ul>
+    </nav>
+    
+    <section class="custom-headers" ng-transclude></section>
+  </header>
 </section>
