@@ -3,7 +3,9 @@ import './signup.scss';
 
 export default {
   template,
-  bindings: {success: '<'},
+  bindings: {
+    success: '<'
+  },
   controller
 };
 

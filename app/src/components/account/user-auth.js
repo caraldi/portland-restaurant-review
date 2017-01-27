@@ -13,7 +13,9 @@ export default {
   <signin ng-if="$ctrl.action==='signin'" success="$ctrl.success"></signin>
   <signup ng-if="$ctrl.action==='signup'" success="$ctrl.success"></signup>
   `,
-  bindings: {success: '<'},
+  bindings: {
+    success: '<'
+  },
   controller
 };
 
