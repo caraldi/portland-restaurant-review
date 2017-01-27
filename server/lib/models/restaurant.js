@@ -11,12 +11,12 @@ const schema = new Schema({
     ref: 'Neighborhood',
     required: true
   },
-  address: {
-    street: String,
-    city: String,
-    zip: Number, 
-    required: true
-  },
+  // address: {
+  //   street: String,
+  //   city: String,
+  //   zip: Number, 
+  //   required: true
+  // },
   usernameId: {
     type: Schema.Types.ObjectId,
     ref: 'User',

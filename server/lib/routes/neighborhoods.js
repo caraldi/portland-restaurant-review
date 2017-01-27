@@ -5,13 +5,13 @@ const Neighborhood = require('../models/neighborhood');
 const Restaurant = require('../models/restaurant');
 
 router
-  .get('/neighborhoods', (req, res, next) => {
+  .get('/', (req, res, next) => {
     Neighborhood.find(req.query).lean()
       .then(neighborhoods => res.send(neighborhoods))
       .catch(next);
   })
 
-  .get('/neighborhoods/:id', (req, res, next) => {
+  .get('/:id', (req, res, next) => {
     const id = req.params.id;
 
     Promise.all([
@@ -29,7 +29,7 @@ router
     .catch(next);
   })
 
-  .delete('/neighborhoods/:id', (req, res, next) => {
+  .delete('/:id', (req, res, next) => {
     const neighborhood = req.params.id;
 
     Promise.all ([
@@ -40,13 +40,13 @@ router
     .catch(next);
   })
 
-  .post('/neighborhoods', bodyParser, (req, res, next) => {
+  .post('/', bodyParser, (req, res, next) => {
     new Neighborhood(req.body).save()
       .then(saved => res.send(saved))
       .catch(next);
   })
 
-  .put('/neighborhoods/:id', bodyParser, (req, res, next) => {
+  .put('/:id', bodyParser, (req, res, next) => {
     Neighborhood.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
       runValidators: true

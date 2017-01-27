@@ -3,13 +3,13 @@
 
 :local(.neighborhoods) {
   position: relative;
-  width: 100%;
   margin: 0 auto;
-  background-image: url("/img/background3.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  overflow: hidden;
-  text-align: justify;
+  width: 50%;
+  height: 250px;
+  font-family: $content;
+  color: $black;
+  text-align: center;
+  font-size: 1.3em;
   
   .add-neighborhood {
     position: absolute;

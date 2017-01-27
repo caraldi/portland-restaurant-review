@@ -3,7 +3,7 @@ routes.$inject = ['$stateProvider', '$urlRouterProvider'];
 export default function routes($stateProvider, $urlRouterProvider) {
   $stateProvider.state({
     name: 'welcome',
-    url: '/welcome',
+    url: '/',
     data: {
       public: true
     },
@@ -39,7 +39,7 @@ export default function routes($stateProvider, $urlRouterProvider) {
 
   $stateProvider.state({
     name: 'portland.neighborhood',
-    url: '/neighborhoods/{id}',
+    url: '/{id}',
     abstract: true,
     default: '.list',
     resolve: {
@@ -54,15 +54,15 @@ export default function routes($stateProvider, $urlRouterProvider) {
 
   $stateProvider.state({
     name: 'portland.neighborhood.detail',
-    url: '/restaurants/{id}',
+    url: '/detail',
     component: 'detailView'
   });
 
   $stateProvider.state({
     name: 'portland.neighborhood.list',
-    url: '/restaurants/all',
+    url: '/all',
     component: 'listView'
   });
 
-  $urlRouterProvider.otherwise('/welcome');
+  $urlRouterProvider.otherwise('/');
 }

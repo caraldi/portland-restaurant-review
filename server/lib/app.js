@@ -15,20 +15,17 @@ const restaurants = require('./routes/restaurants');
 
 
 app.use(morgan('dev'));
-app.use(cors);
-
 if(process.env.NODE_ENV === 'production') {
   app.use(redirectHttp);
 }
-
-app.use(checkDb);
-app.use(errorHandler);
+app.use(cors);
 app.use(express.static('./public'));
 
+app.use(checkDb);
 app.use('/api/auth', auth);
-app.use('/api/neighborhoods', neighborhoods);
-app.use('/api/restaurants', restaurants);
-app.use('/api/reviews', ensureAuth, reviews);
-app.use('/api/users', ensureAuth, users);
+app.use('/api/neighborhoods', ensureAuth, neighborhoods);
+app.use('/api/restaurants', ensureAuth, restaurants);
+
+app.use(errorHandler);
 
 module.exports = app;
