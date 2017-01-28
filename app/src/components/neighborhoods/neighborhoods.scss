@@ -3,7 +3,14 @@
 
 :local(.neighborhoods) {
   position: relative;
-
+  margin: 0 auto;
+  width: 50%;
+  height: 250px;
+  font-family: $content;
+  color: $black;
+  text-align: center;
+  font-size: 1.3em;
+  
   .add-neighborhood {
     position: absolute;
     right: 0;

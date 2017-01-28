@@ -17,8 +17,8 @@ import 'ng-dialog/css/ngDialog-theme-default.css';
 
 
 import http from './http';
-import auth from './auth';
 import routes from './routes';
+import auth from './auth';
 
 const app = angular.module('myApp', [
   components, 
