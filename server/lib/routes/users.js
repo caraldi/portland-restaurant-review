@@ -9,6 +9,7 @@ router
   .post('/validate', ensureAuth, bodyParser, (req, res, next) => { //eslint-disable-line no-unused-vars
     res.send({valid: true, username: req.user.user});
   })
+  
   .post('/signup', bodyParser, (req, res, next) => {
     const {username, password} = req.body;
     if (!username || !password) {
