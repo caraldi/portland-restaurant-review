@@ -1,4 +1,4 @@
-const express = require('express').Router();
+const router = require('express').Router();
 const bodyParser = require('body-parser').json();
 const token = require('../auth/token');
 const User = require('../models/user');

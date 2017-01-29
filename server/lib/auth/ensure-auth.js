@@ -8,20 +8,22 @@ module.exports = function ensureAuth() {
 
     if (!authHeader) {
       return next({code: 400, error: 'Unauthorized, token required'});
-    };
+    }
 
     const [bearer, jwt] = authHeader.split(' ');
     if (bearer !== 'Bearer' || !jwt) {
       return next({code: 400, error: 'Unauthorized, invalid token'});
-    };
+    }
 
     tokenVerify.verify(jwt)
       .then(payload => {
         req.user = payload;
         next();
       })
-      .catch(err => {
-        next({code: 400, error: 'Unauthorized, invalid token'});
+      .catch(() => {
+        res.status(403).json({
+          error: 'Unauthorized, invalid token'
+        });
       });
   };
 };
