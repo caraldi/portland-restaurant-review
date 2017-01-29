@@ -5,8 +5,7 @@ const bcrypt = require('bcryptjs');
 const schema = new Schema({
   username: {type: String, required: true},
   password: {type: String, required: true},
-  email: {type: String},
-  reviews: {}
+  email: {type: String}
 });
 
 schema.methods.generateHash = function(password) {

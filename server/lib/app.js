@@ -15,12 +15,12 @@ if(process.env.NODE_ENV === 'production') {
 app.use(cors);
 app.use(express.static('./public'));
 
-const users = require('./routes/users');
+const auth = require('./routes/auth');
 const neighborhoods = require('./routes/neighborhoods');
 const restaurants = require('./routes/restaurants');
 
 app.use(checkDb);
-app.use('/api/users', users);
+app.use('/api/auth', auth);
 app.use('/api/neighborhoods', ensureAuth, neighborhoods);
 app.use('/api/restaurants', ensureAuth, restaurants);
 

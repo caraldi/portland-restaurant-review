@@ -1,27 +1,27 @@
 const tokenVerify = require('./token');
 
-module.exports = function getEnsureAuth() {
+module.exports = function ensureAuth() {
   return function ensureAuth(req, res, next) {
     if (req.method === 'OPTIONS') return next();
 
     const authHeader = req.headers.authorization;
-    const token = authHeader ? authHeader.replace('Bearer ', '') : '';
 
-    if (!token) {
-      return res.status(403).json({
-        error: 'No token provided'
-      });
-    }
+    if (!authHeader) {
+      return next({code: 400, error: 'Unauthorized, token required'});
+    };
 
-    tokenVerify.verify(token)
+    const [bearer, jwt] = authHeader.split(' ');
+    if (bearer !== 'Bearer' || !jwt) {
+      return next({code: 400, error: 'Unauthorized, invalid token'});
+    };
+
+    tokenVerify.verify(jwt)
       .then(payload => {
         req.user = payload;
         next();
       })
-      .catch(() => {
-        res.status(403).json({
-          error: 'Invalid token'
-        });
+      .catch(err => {
+        next({code: 400, error: 'Unauthorized, invalid token'});
       });
   };
 };
