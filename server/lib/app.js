@@ -1,12 +1,12 @@
 const express = require('express');
 const app = express();
 
-const morgan = require('morgan');
-const cors = require('cors');
-const redirectHttp = require('./redirect-http')();
 const checkDb = require('./check-connection')();
-const errorHandler = require('./error-handler');
+const cors = require('cors')();
 const ensureAuth = require('./auth/ensure-auth')();
+const errorHandler = require('./error-handler')();
+const morgan = require('morgan');
+const redirectHttp = require('./redirect-http')();
 
 app.use(morgan('dev'));
 if(process.env.NODE_ENV === 'production') {
