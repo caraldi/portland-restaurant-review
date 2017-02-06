@@ -6,8 +6,7 @@ module.exports = {
     return new Promise((resolve, reject) => {
       
       jwt.sign({
-        id: user.id,
-        roles: user.roles
+        id: user.id
       }, secret, null, (err, token) => {
         if (err) return reject(err);
         resolve(token);

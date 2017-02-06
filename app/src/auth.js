@@ -9,7 +9,7 @@ export default function auth($rootScope, userService, ngDialog, $state) {
         template: '<user-auth success="success"></user-auth>',
         plain: true,
         controller: ['$scope', function($scope) {
-          $scope.success = function () {
+          $scope.success = function() {
             dialog.close();
             return $state.go(toState.name, toParams);
           };
