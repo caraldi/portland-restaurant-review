@@ -20,9 +20,9 @@ const neighborhoods = require('./routes/neighborhoods');
 const restaurants = require('./routes/restaurants');
 
 app.use(checkDb);
-app.use('/api/auth', auth);
-app.use('/api/neighborhoods', ensureAuth, neighborhoods);
-app.use('/api/restaurants', ensureAuth, restaurants);
+app.use('/auth', auth);
+app.use('/neighborhoods', ensureAuth, neighborhoods);
+app.use('/restaurants', ensureAuth, restaurants);
 
 app.use(errorHandler);
 
