@@ -17,6 +17,6 @@ module.exports = function () {
       console.log('ERROR', err);
     }
 
-    res.status(code).send({error});
+    res.status(code).send({ error });
   };
 };
