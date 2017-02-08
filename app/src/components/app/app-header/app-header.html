@@ -7,9 +7,6 @@
 
     <nav>
       <ul>
-        <li ui-sref="welcome">HOME</li>
-        <li ng-if="!$ctrl.isAuthenticated()" ui-sref="neighborhoods" >SIGNIN</li>
-        <li ng-if="$ctrl.isAuthenticated()" ui-sref="neighborhoods" >NEIGHBORHOODS</li>
         <li ng-if="$ctrl.isAuthenticated()" ui-sref="welcome" ng-click="$ctrl.logout()">LOGOUT</li>
       </ul>
     </nav>

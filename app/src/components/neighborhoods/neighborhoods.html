@@ -1,14 +1,30 @@
 <section ng-class="$ctrl.styles.neighborhoods">
-  <select
-    ng-model="$ctrl.selected"
-    ng-change="$ctrl.setNeighborhood(event)"
-    ng-options="neighborhood._id as neighborhood.name for neighborhood in $ctrl.neighborhoods">
-  </select>
+  <div class="title">
+    <h2>Select a neighborhood</h2>
+    <button ng-click="add=!add" ng-hide="add">+ new</button>
+  </div>
+  <div class="all-neighborhoods">
+    <div class="list">
+      <ul>
+        <li ng-repeat="neighborhood in $ctrl.neighborhoods">
+      </ul>
+    </div>
+  </div>
+</section>
 
-  <section class="add-neighborhood">
-    <add-new inline="true" add="$ctrl.add">
-      <input ng-model="$ctrl.newNeighborhood.name">
-    </add-new>
+  <section ng-class="$ctrl.addNeighborhood" ng-show="add">
+    <div class="add-neighborhood">
+      <h3>Add a new neighborhood</h3>
+      <label>NAME:</label>
+      <input ng-model="$ctrl.addNeighborhood.name"><br>
+      <label>QUADRANT:</label>
+      <select
+        ng-model="$ctrl.selected"
+        ng-change="$ctrl.setQuad(event)"
+        ng-options="neighborhood.quadrant as quadrant in $ctrl.neighborhoods">${{ $ctrl.neighborhoods.quadrant }}</select>
+    </div>
+    <button ng-show="add" ng-click="$ctrl.addNeighborhood()">SUBMIT</button>
+    <button ng-show="add" ng-click="add=!add">GO BACK</button>
   </section>
 
   <section>
