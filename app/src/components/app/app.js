@@ -9,5 +9,5 @@ export default {
 controller.$inject = ['$state'];
 
 function controller($state) {
-  this.gotoNeighborhoods = () => $state.go('portland');
+  this.gotoQuadrants = () => $state.go('portland');
 }
