@@ -20,7 +20,7 @@ import http from './http';
 import routes from './routes';
 import auth from './auth';
 
-const app = angular.module('myApp', [
+const app = angular.module('reviewApp', [
   components, 
   services,
   animate,
