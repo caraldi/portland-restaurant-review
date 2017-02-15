@@ -19,16 +19,10 @@ router
       .then(restaurant => {
         if (!restaurant) throw {
           code: 404,
-          error: `Restaurant ${id} not found`
+          error: `Restaurant ${ id } not found`
         };
         res.send(restaurant);
       })
-      .catch(next);
-  })
-
-  .delete('/:id', (req, res, next) => {
-    Restaurant.findByIdAndRemove(req.params.id)
-      .then(deleted => res.send(deleted))
       .catch(next);
   })
 
@@ -44,7 +38,12 @@ router
     Restaurant.findByIdAndUpdate(req.params.id, req.body)
       .then(saved => res.send(saved))
       .catch(next);
+  })
+
+  .delete('/:id', (req, res, next) => {
+    Restaurant.findByIdAndRemove(req.params.id)
+      .then(deleted => res.send(deleted))
+      .catch(next);
   });
 
 module.exports = router;
-  

@@ -5,7 +5,7 @@ const User = require('../models/user');
 const ensureAuth = require('../auth/ensure-auth')();
 
 router.post('/signup', bodyParser, (req, res) => {
-  const {username, password} = req.body;
+  const { username, password } = req.body;
   delete req.body.password;
 
   if (!password) {
@@ -14,7 +14,7 @@ router.post('/signup', bodyParser, (req, res) => {
     });
   }
 
-  User.findOne({username})
+  User.findOne({ username })
     .then(existing => {
       if(existing) {
         return res.status(500).json({
@@ -27,7 +27,7 @@ router.post('/signup', bodyParser, (req, res) => {
       user.generateHash(password);
       return user.save()
         .then(user => token.sign(user))
-        .then(token => res.json({token}));
+        .then(token => res.json({ token }));
     })
     .catch(err => {
       res.status(500).json({
@@ -38,10 +38,10 @@ router.post('/signup', bodyParser, (req, res) => {
 });
 
 router.post('/signin', bodyParser, (req, res) => {
-  const {username, password} = req.body;
+  const { username, password } = req.body;
   delete req.body.password;
 
-  User.findOne({username})
+  User.findOne({ username })
     .then(user => {
       if (!user) {
         return res.status(400).json({
@@ -52,12 +52,12 @@ router.post('/signin', bodyParser, (req, res) => {
 
       if(!user.compareHash(password)) {
         return res.status(400).json({
-          msg: 'Invalid password',
+          msg: 'Invalid username or password',
           reason: 'Password does not match'
         });
       }
       
-      token.sign(user).then(token => res.json({token}));
+      token.sign(user).then(token => res.json({ token }));
     })
     .catch(err => {
       res.status(500).json({
@@ -68,7 +68,7 @@ router.post('/signin', bodyParser, (req, res) => {
 });
 
 router.get('/validate', ensureAuth, (req, res) => {
-  res.status(200).send({success: true});
+  res.status(200).send({ success: true });
 });
 
 module.exports = router;

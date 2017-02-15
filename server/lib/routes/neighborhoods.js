@@ -13,30 +13,18 @@ router
 
   .get('/:id', (req, res, next) => {
     const id = req.params.id;
-
     Promise.all([
       Neighborhood.findById(id).lean(),
-      Restaurant.find({neighborhood: id}).lean()
+      Restaurant.find({ neighborhood: id }).lean()
     ])
-    .then(([neighborhood, restaurants]) => {
+    .then(([ neighborhood, restaurants ]) => {
       if (!neighborhood) throw {
         code: 404,
-        error: `Neighborhood ${id} not found`
+        error: `Neighborhood ${ id } not found`
       };
       neighborhood.restaurants = restaurants;
       res.send(neighborhood);
     })
-    .catch(next);
-  })
-
-  .delete('/:id', (req, res, next) => {
-    const neighborhood = req.params.id;
-
-    Promise.all ([
-      Neighborhood.findByIdAndRemove(neighborhood),
-      Restaurant.find({neighborhood}).remove()
-    ])
-    .then(([neighborhood]) => res.send(neighborhood))
     .catch(next);
   })
 
@@ -53,7 +41,16 @@ router
     })
     .then(saved => res.send(saved))
     .catch(next);
+  })
+
+  .delete('/:id', (req, res, next) => {
+    const neighborhood = req.params.id;
+    Promise.all ([
+      Neighborhood.findByIdAndRemove(neighborhood),
+      Restaurant.find({ neighborhood }).remove()
+    ])
+    .then(([ neighborhood ]) => res.send(neighborhood))
+    .catch(next);
   });
 
-module.exports = router;
-  
+module.exports = router; 
