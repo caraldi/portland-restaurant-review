@@ -38,6 +38,12 @@ export default function routes($stateProvider, $urlRouterProvider) {
   });
 
   $stateProvider.state({
+    name: 'portland.quadrants',
+    url: '/quadrants',
+    component: 'quadrants'
+  });
+
+  $stateProvider.state({
     name: 'portland.neighborhood',
     url: '/{id}',
     abstract: true,

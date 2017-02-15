@@ -1,0 +1,36 @@
+<section ng-class="$ctrl.styles.quadrants">
+  <div class="quadrants">
+    <div class="n">
+      <h3>N</h3>
+      <select
+        ng-model="$ctrl.selected"
+        ng-change="$ctrl.setNeighborhood(event)"
+        ng-options="">
+      </select>
+    </div>
+    <div class="ne">
+       <h3>NE</h3>
+      <select
+        ng-model="$ctrl.selected"
+        ng-change="$ctrl.setNeighborhood(event)"
+        ng-options="">
+      </select>
+    <div class="nw">
+      <h3>NW</h3>
+      <select
+        ng-model="$ctrl.selected"
+        ng-change="$ctrl.setNeighborhood(event)"
+        ng-if="$ctrl.selected===""
+        ng-repeat="neighborhoods in $ctrl.neighborhoods">
+      </select>
+    </div>
+    <div class="se">
+       <h3>SE</h3>
+      <select
+        ng-model="$ctrl.selected"
+        ng-change="$ctrl.setAlbum(event)"
+        ng-options="">
+      </select>
+    </div>
+  </div>
+</section>
