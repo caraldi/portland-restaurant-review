@@ -4,40 +4,45 @@
 :local(.neighborhoods) {
   width: 100%;
   height: 100%;
-  margin: 5%;
+  margin: 0 auto;
   .title {
-    width: 90%;
-    height: 50px;
+    width: 100%;
+    height: 400px;
+    overflow-x: auto;
     margin: 0;
+    text-align: center;
+    border: 1px solid black;
     h2 {
       font-family: $headline;
       font-size: 2em;
     }
-    button {
-      background-color: $bright-green;
-      border: none;
-      font-family: $headline;
-      font-size: 1em;
-      padding: 10px 20px;
-    }
-    button:hover {
-      box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-    }
   }
-  .all-neighborhoods {
-    width: 90%;
-    height: 100%;
+  .add-neighborhood {
+    width: 100%;
     margin: 0;
-    .quadrants {
-      margin: 15% auto;
-    }
-    .n, .ne, .nw, .se {
-      height: 150px;
-      width: 150px;
-      margin: 0;
-      float: left;
-      border-radius: 50%;
-      font-family: $tag;
+    padding: .5em;
+    text-align: center;
+    border: 1px solid black;
+    h3 {
+      margin: 2%;
+      font-family: $headline;
+      font-size: 1.5em;
     }
   }
+  // .all-neighborhoods {
+  //   width: 90%;
+  //   height: 100%;
+  //   margin: 0;
+  //   .quadrants {
+  //     margin: 15% auto;
+  //   }
+  //   .n, .ne, .nw, .se {
+  //     height: 150px;
+  //     width: 150px;
+  //     margin: 0;
+  //     float: left;
+  //     border-radius: 50%;
+  //     font-family: $tag;
+  //   }
+  // }
 }

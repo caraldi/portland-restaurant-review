@@ -20,7 +20,7 @@ function controller(restaurantService, $state) {
       const _id = this.neighborhood._id;
       const index = this.neighborhoods.findIndex(n => n._id === _id);
       if (index > -1) this.neighborhoods.splice(index, 1);
-      $state.go('neighborhoods');
+      $state.go('portland');
     });
   };
 

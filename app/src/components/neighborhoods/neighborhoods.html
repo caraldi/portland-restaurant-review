@@ -2,25 +2,23 @@
   <div class="title">
     <h2>Select a neighborhood</h2>
     <button ng-click="add=!add" ng-hide="add">+ new</button>
+    <ul>
+      <li 
+      ui-sref="neighborhood({ id: neighborhood._id })" 
+      ng-repeat="neighborhood in $ctrl.neighborhoods"
+      >{{ neighborhood.name }}</li>
+    </ul>
   </div>
-</section>
 
   <section ng-class="$ctrl.addNeighborhood" ng-show="add">
     <div class="add-neighborhood">
       <h3>Add a new neighborhood</h3>
-      <label>NAME:</label>
-      <input ng-model="$ctrl.addNeighborhood.name"><br>
-      <label>QUADRANT:</label>
-      <select
-        ng-model="$ctrl.selected"
-        ng-change="$ctrl.setQuad(event)"
-        ng-options="neighborhood.quadrant as quadrant in $ctrl.neighborhoods">${{ $ctrl.neighborhoods.quadrant }}</select>
+      <label>Name</label>
+        <input ng-model="$ctrl.addNeighborhood.name">
+      <label>Quadrant</label>
+        <input ng-model="$ctrl.addNeighborhood.quadrant">
+      <button ng-show="add" ng-click="$ctrl.addNeighborhood()">submit</button>
+      <button ng-show="add" ng-click="add=!add">back</button>
     </div>
-    <button ng-show="add" ng-click="$ctrl.addNeighborhood()">SUBMIT</button>
-    <button ng-show="add" ng-click="add=!add">GO BACK</button>
-  </section>
-
-  <section>
-    <ui-view></ui-view>
   </section>
 </section>

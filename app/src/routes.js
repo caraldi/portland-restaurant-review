@@ -37,15 +37,15 @@ export default function routes($stateProvider, $urlRouterProvider) {
     }
   });
 
-  $stateProvider.state({
-    name: 'portland.quadrants',
-    url: '/quadrants',
-    component: 'quadrants'
-  });
+  // $stateProvider.state({
+  //   name: 'portland.quadrants',
+  //   url: '/quadrants',
+  //   component: 'quadrants'
+  // });
 
   $stateProvider.state({
     name: 'portland.neighborhood',
-    url: '/{id}',
+    url: '/{ id }',
     abstract: true,
     default: '.list',
     resolve: {
@@ -59,15 +59,15 @@ export default function routes($stateProvider, $urlRouterProvider) {
   });
 
   $stateProvider.state({
-    name: 'portland.neighborhood.detail',
-    url: '/detail',
-    component: 'detailView'
-  });
-
-  $stateProvider.state({
     name: 'portland.neighborhood.list',
     url: '/all',
     component: 'listView'
+  });
+
+  $stateProvider.state({
+    name: 'portland.neighborhood.detail',
+    url: '/detail',
+    component: 'detailView'
   });
 
   $urlRouterProvider.otherwise('/');
