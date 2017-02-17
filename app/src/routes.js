@@ -37,21 +37,15 @@ export default function routes($stateProvider, $urlRouterProvider) {
     }
   });
 
-  // $stateProvider.state({
-  //   name: 'portland.quadrants',
-  //   url: '/quadrants',
-  //   component: 'quadrants'
-  // });
-
   $stateProvider.state({
     name: 'portland.neighborhood',
-    url: '/{ id }',
+    url: '/{id}',
     abstract: true,
     default: '.list',
     resolve: {
       id: ['$transition$', t => t.params().id],
       neighborhood: ['neighborhoodService', '$transition$', (Neighborhood, t) => {
-        return Neighborhood.get({id: t.params().id}).$promise;
+        return Neighborhood.get({ id: t.params().id }).$promise;
       }],
       restaurants: ['neighborhood', n => n.restaurants]
     },
@@ -60,13 +54,13 @@ export default function routes($stateProvider, $urlRouterProvider) {
 
   $stateProvider.state({
     name: 'portland.neighborhood.list',
-    url: '/all',
+    url: '/restaurants',
     component: 'listView'
   });
 
   $stateProvider.state({
     name: 'portland.neighborhood.detail',
-    url: '/detail',
+    url: '/restaurant-detail',
     component: 'detailView'
   });
 

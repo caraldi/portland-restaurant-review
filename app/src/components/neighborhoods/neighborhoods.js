@@ -14,13 +14,16 @@ controller.$inject = ['neighborhoodService', '$state'];
 
 function controller(Neighborhood, $state) {
   this.styles = styles;
+
   this.reset = () => this.newNeighborhood = {};
+
   this.$onInit = () => {
     if(!this.selected && this.neighborhoods.length) {
       this.selected = this.neighborhoods[0]._id;
     }
     this.setNeighborhood();
   };
+
   this.reset();
 
   this.uiOnParamsChanged = params => {
@@ -30,10 +33,10 @@ function controller(Neighborhood, $state) {
 
   this.setNeighborhood = () => {
     if (!this.selected) return;
-    $state.go('portland.neighborhood', {id: this.selected});
+    $state.go('portland.neighborhood', { id: this.selected });
   };
 
-  this.add = () => {
+  this.addNeighborhood = () => {
     new Neighborhood(this.newNeighborhood).$save()
       .then(neighborhood => {
         this.neighborhoods.push(neighborhood);

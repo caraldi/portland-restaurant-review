@@ -5,25 +5,26 @@
     <div class="filter">
       <h3>Filter by quadrant</h3>
       <select
+        name="quad-filter"
         ng-model="$ctrl.selected"
         ng-options="quadrant as neighborhood.quadrant for neighborhood in $ctrl.neighborhoods | filter">
       </select>
     </div>
     <ul>
       <li 
-      ui-sref="neighborhood({ id: neighborhood._id })" 
-      ng-repeat="neighborhood in $ctrl.neighborhoods"
+        ui-sref="portland.neighborhood({ id: neighborhood._id })" 
+        ng-repeat="neighborhood in $ctrl.neighborhoods"
       >{{ neighborhood.name }}</li>
     </ul>
   </div>
 
-  <section ng-class="$ctrl.addNeighborhood" ng-show="add">
+  <section ng-class="$ctrl.newNeighborhood" ng-show="add">
     <div class="add-neighborhood">
       <h3>Add a new neighborhood</h3>
       <label>Name</label>
-        <input ng-model="$ctrl.addNeighborhood.name">
+        <input ng-model="$ctrl.newNeighborhood.name">
       <label>Quadrant</label>
-        <input ng-model="$ctrl.addNeighborhood.quadrant">
+        <input ng-model="$ctrl.newNeighborhood.quadrant">
       <button ng-show="add" ng-click="$ctrl.addNeighborhood()">submit</button>
       <button ng-show="add" ng-click="add=!add">back</button>
     </div>

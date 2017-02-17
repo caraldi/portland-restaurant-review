@@ -8,7 +8,7 @@ const schema = new Schema({
   },
   quadrant: {
     type: String,
-    enum: ['N','NW','SW','SE','NE'],
+    enum: ['N','NE','SE','SW','NW'],
     required: true
   }
 });

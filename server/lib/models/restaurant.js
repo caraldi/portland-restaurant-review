@@ -10,18 +10,18 @@ const schema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'Neighborhood',
     required: true
-  },
+  }
   // address: {
   //   street: String,
   //   city: String,
   //   zip: Number, 
   //   required: true
   // },
-  usernameId: {
-    type: Schema.Types.ObjectId,
-    ref: 'User',
-    required: true
-  }
+  // usernameId: {
+  //   type: Schema.Types.ObjectId,
+  //   ref: 'User',
+  //   required: true
+  // }
 });
 
 module.exports = mongoose.model('Restaurant', schema);
