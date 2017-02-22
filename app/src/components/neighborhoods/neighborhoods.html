@@ -1,22 +1,4 @@
 <section ng-class="$ctrl.styles.neighborhoods">
-  <div class="title">
-    <h2>Select a Portland neighborhood</h2>
-    <button ng-click="add=!add" ng-hide="add">+ new</button>
-    <div class="filter">
-      <h3>Filter by quadrant</h3>
-      <select
-        ng-model="$ctrl.quadOptions"
-        ng-options="quad as quadrant for quadrants in $ctrl.quadOptions">
-      </select>
-    </div>
-    <ul>
-      <li 
-        ui-sref="portland.neighborhood({ id: neighborhood._id })" 
-        ng-repeat="neighborhood in $ctrl.neighborhoods"
-      >{{ neighborhood.name }}</li>
-    </ul>
-  </div>
-
   <section ng-class="$ctrl.newNeighborhood" ng-show="add">
     <div class="add-neighborhood">
       <h3>Add a new neighborhood</h3>
@@ -24,8 +6,25 @@
         <input ng-model="$ctrl.newNeighborhood.name">
       <label>Quadrant</label>
         <input ng-model="$ctrl.newNeighborhood.quadrant">
-      <button ng-show="add" ng-click="$ctrl.addNeighborhood()">submit</button>
-      <button ng-show="add" ng-click="add=!add">back</button>
+      <button ng-show="add" ng-click="$ctrl.addNeighborhood()">Submit</button>
+      <button ng-show="add" ng-click="add=!add">Cancel</button>
     </div>
   </section>
+  <div class="title">
+    <h2>Select a Portland neighborhood</h2>
+    <button ng-click="add=!add" ng-hide="add">+ new</button>
+    <div class="filter">
+      <h3>Filter by quadrant</h3>
+      <select
+        ng-model="$ctrl.quadOptions"
+        ng-options="quadrant as quadrant for quadrants in $ctrl.quadOptions">
+      </select>
+    </div>
+    <ul>
+      <li 
+        ui-sref="portland.neighborhood({ id: neighborhood._id })" 
+        ng-repeat="neighborhood in $ctrl.neighborhoods | orderBy: 'name'"
+      >{{ neighborhood.name }}</li>
+    </ul>
+  </div>
 </section>
