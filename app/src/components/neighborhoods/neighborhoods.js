@@ -41,6 +41,7 @@ function controller(Neighborhood, $state) {
   this.addNeighborhood = () => {
     new Neighborhood(this.newNeighborhood).$save()
       .then(neighborhood => {
+        alert(neighborhood.name + ' has been added!')
         this.neighborhoods.push(neighborhood);
         this.reset();
         this.selected = neighborhood._id;
