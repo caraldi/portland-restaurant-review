@@ -15,6 +15,8 @@ controller.$inject = ['neighborhoodService', '$state'];
 function controller(Neighborhood, $state) {
   this.styles = styles;
 
+  this.quadOptions = ['N','NE','SE','SW','NW'];
+
   this.reset = () => this.newNeighborhood = {};
 
   this.$onInit = () => {

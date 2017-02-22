@@ -5,9 +5,8 @@
     <div class="filter">
       <h3>Filter by quadrant</h3>
       <select
-        name="quad-filter"
-        ng-model="$ctrl.selected"
-        ng-options="quadrant as neighborhood.quadrant for neighborhood in $ctrl.neighborhoods | filter">
+        ng-model="$ctrl.quadOptions"
+        ng-options="quad as quadrant for quadrants in $ctrl.quadOptions">
       </select>
     </div>
     <ul>
