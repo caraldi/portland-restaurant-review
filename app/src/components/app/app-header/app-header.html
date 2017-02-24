@@ -7,10 +7,9 @@
 
     <nav>
       <ul>
+        <section class="custom-headers" ng-transclude></section>
         <li ng-if="$ctrl.isAuthenticated()" ui-sref="welcome" ng-click="$ctrl.logout()">LOGOUT</li>
       </ul>
     </nav>
-    
-    <section class="custom-headers" ng-transclude></section>
   </header>
 </section>

@@ -15,16 +15,14 @@ controller.$inject = ['neighborhoodService', '$state'];
 function controller(Neighborhood, $state) {
   this.styles = styles;
 
-  this.quadOptions = ['N','NE','SE','SW','NW'];
-
   this.reset = () => this.newNeighborhood = {};
 
-  this.$onInit = () => {
-    if(!this.selected && this.neighborhoods.length) {
-      this.selected = this.neighborhoods[0]._id;
-    }
-    this.setNeighborhood();
-  };
+  // this.$onInit = () => {
+  //   if(!this.selected && this.neighborhoods.length) {
+  //     this.selected = this.neighborhoods[0]._id;
+  //   }
+  //   this.setNeighborhood();
+  // };
 
   this.reset();
 
@@ -35,7 +33,7 @@ function controller(Neighborhood, $state) {
 
   this.setNeighborhood = () => {
     if (!this.selected) return;
-    $state.go('portland.neighborhood', { id: this.selected });
+    $state.go('portland.neighborhood.restaurants', { id: this.selected });
   };
 
   this.addNeighborhood = () => {

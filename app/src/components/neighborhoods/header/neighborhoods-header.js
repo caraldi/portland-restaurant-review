@@ -1,10 +1,8 @@
+import template from './neighborhoods-header.html';
 import styles from './neighborhoods-header.scss';
 
 export default {
-  template: `
-    <a ng-class="$ctrl.styles.link" ui-sref="^.detail">Restaurant Info</a>
-    <a ng-class="$ctrl.styles.link" ui-sref="^.list">Neighborhood Overview</a>
-  `,
+  template,
   controller() {
     this.styles = styles;
   }

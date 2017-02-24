@@ -1,31 +1,25 @@
 <section>
-  <div>
-    <h2>{{ $ctrl.neighborhood.name }}</h2>
-    <button ng-click="$ctrl.removeNeighborhood()">X</button>
+  <h2>{{ $ctrl.neighborhood.name }}</h2>
+  <div class="add">
+    <button ng-click="add=!add" ng-hide="add">Add</button>
   </div>
-
   <section>
     <ui-view></ui-view>
   </section>
 
-  <section>
-    <h3>Add new restaurant in {{ $ctrl.neighborhood.name }}</h3>
-    <add-new add="$ctrl.add">
-      <label ng-click="$ctrl.alert()">Name</label>
-        <input type="text" ng-model="$ctrl.newNeighborhood.name">
-      <label>Quadrant</label>
-        <input type="text" ng-model="$ctrl.newNeighborhood.quadrant">
-    </add-new>
-  </section>
   <section ng-class="$ctrl.newRestaurant" ng-show="add">
-    <div class="add-restaurant">
-      <h3>Add a new restaurant in {{ $ctrl.neighborhood.name }}</h3>
+    <h3>Add a new restaurant in {{ $ctrl.neighborhood.name }}</h3>
+    <form>
       <label>Name</label>
-        <input ng-model="$ctrl.newRestaurant.name">
-      <label>Address</label>
-        <input ng-model="$ctrl.newRestaurant.address">
-      <button ng-show="add" ng-click="$ctrl.addRestaurant()">Submit</button>
-      <button ng-show="add" ng-click="add=!add">Go back</button>
-    </div>
+        <input ng-model="$ctrl.newRestaurant.name"><br>
+      <label>Street</label>
+        <input ng-model="$ctrl.newRestaurant.street"><br>
+      <label>City</label>
+        <input ng-model="$ctrl.newRestaurant.city"><br>
+      <label>Zip</label>
+        <input ng-model="$ctrl.newRestaurant.city"><br>
+    </form>
+    <button ng-show="add" ng-click="$ctrl.addRestaurant()">Submit</button>
+    <button ng-show="add" ng-click="add=!add">Go back</button>
   </section>
 </section>

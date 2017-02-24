@@ -3,7 +3,7 @@ routes.$inject = ['$stateProvider', '$urlRouterProvider'];
 export default function routes($stateProvider, $urlRouterProvider) {
   $stateProvider.state({
     name: 'welcome',
-    url: '/',
+    url: '/home',
     data: {
       public: true
     },
@@ -41,7 +41,7 @@ export default function routes($stateProvider, $urlRouterProvider) {
     name: 'portland.neighborhood',
     url: '/{id}',
     abstract: true,
-    default: '.list',
+    default: '.restaurants',
     resolve: {
       id: ['$transition$', t => t.params().id],
       neighborhood: ['neighborhoodService', '$transition$', (Neighborhood, t) => {
@@ -53,16 +53,16 @@ export default function routes($stateProvider, $urlRouterProvider) {
   });
 
   $stateProvider.state({
-    name: 'portland.neighborhood.list',
+    name: 'portland.neighborhood.restaurants',
     url: '/restaurants',
     component: 'listView'
   });
 
   $stateProvider.state({
-    name: 'portland.neighborhood.detail',
-    url: '/restaurant-detail',
+    name: 'portland.neighborhood.restaurant',
+    url: '/{id}',
     component: 'detailView'
   });
 
-  $urlRouterProvider.otherwise('/');
+  $urlRouterProvider.otherwise('/home');
 }
