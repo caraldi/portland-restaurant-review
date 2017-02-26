@@ -3,63 +3,49 @@
 
 :local(.header) {
   margin: 0;
-
   header {
+    width: 100%;
+    height: 200px;
     margin: 0;
     position: fixed;
-    display: inline-block;
-    width: 100%;
-    height: 275px;
     top: 0;
     left: 0;
     z-index: 1000;
-    background-image: url("/img/background2.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-  
-    div {
-      width: 100%;
-      padding: 0;
-      text-align: right;
-      margin: 2% 0;
-
+    border: 3px solid $black;
+    .logo {
+      width: 150px;
+      height: 150px;
+      margin: 2% 4%;
+      padding: 1.5em;
+      text-align: center;
+      border: 3px solid $black;
+      border-radius: 50%;
       h1 {
-        margin: 0 2%;
+        margin: 0;
         font-family: $headline;
         font-size: 4em;
-        color: $magenta;
-      }
-
-      h2 {
-        margin: 0 2%;
-        font-family: $tag;
-        font-size: 1.5em;
-        color: $azure;
       }
     }
-
     nav ul {
-      position: absolute;
-      width: 100%;
+      width: 60%;
+      float: right;
       font-family: $content;
       font-size: 1em;
       text-align: right;
       list-style: none;
       padding: 0;
-
       li {
         position: relative;
         float: right;
         margin: 0 2%;
-        font-size: 1.5em;
-        color: $bright-green;
+        font-size: 2em;
       }
-
       li:hover {
-        color: $azure;
+        color: $blue;
+        cursor: pointer;
+        text-decoration: underline;
       }
     }
-
     .custom-headers {
       position: fixed;
       right: 0;

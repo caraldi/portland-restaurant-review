@@ -1,14 +1,12 @@
 <section ng-class="$ctrl.styles.header">
   <header>
-    <div>
-      <h1>PDXEats</h1>
-      <h2>Neighborhood restaurant review</h2>
+    <div class="logo">
+      <h1>pdx<span>eats</span></h1>
     </div>
-
     <nav>
       <ul>
         <section class="custom-headers" ng-transclude></section>
-        <li ng-if="$ctrl.isAuthenticated()" ui-sref="welcome" ng-click="$ctrl.logout()">LOGOUT</li>
+        <li ng-if="$ctrl.isAuthenticated()" ui-sref="welcome" ng-click="$ctrl.logout()">logout</li>
       </ul>
     </nav>
   </header>

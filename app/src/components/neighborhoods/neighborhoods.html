@@ -3,25 +3,25 @@
     <section class="options">
       <section ng-class="$ctrl.quadOptions" ng-show="filter">
         <div class="filter-quad">
-          <h3>Filter</h3>
+          <h3>FILTER</h3>
           <select
             ng-model="$ctrl.quadOptions"
             ng-options="quadrant as quadrant for quadrants in $ctrl.quadOptions">
           </select>
-          <button ng-show="filter" ng-click="filter=!filter">Cancel</button>
+          <button ng-show="filter" ng-click="filter=!filter">CANCEL</button>
         </div>
       </section>
       <section ng-class="$ctrl.newNeighborhood" ng-show="add">
         <div class="add-neighborhood">
           <h3>Add neighborhood</h3>
           <form>
-            <label>Name</label>
+            <label>NAME</label>
               <input ng-model="$ctrl.newNeighborhood.name"><br>
-            <label>Quadrant</label>
+            <label>QUADRANT</label>
               <input ng-model="$ctrl.newNeighborhood.quadrant"><br>
           </form>
-          <button ng-show="add" ng-click="$ctrl.addNeighborhood()">Submit</button>
-          <button ng-show="add" ng-click="add=!add">Cancel</button>
+          <button ng-show="add" ng-click="$ctrl.addNeighborhood()">SUBMIT</button>
+          <button ng-show="add" ng-click="add=!add">CANCEL</button>
         </div>
       </section>
     </section>
@@ -30,10 +30,10 @@
       <div class="title">
         <h2>Select a Portland neighborhood</h2>
         <div class="add">
-          <button ng-click="add=!add" ng-hide="add">Add</button>
+          <button ng-click="add=!add" ng-hide="add">ADD</button>
         </div>
         <div class="filter">
-          <button ng-click="filter=!filter" ng-hide="filter">Filter</button>
+          <button ng-click="filter=!filter" ng-hide="filter">FILTER</button>
         </div>
       </div>
       <div class="neighborhoods">
