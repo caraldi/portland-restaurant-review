@@ -17,6 +17,7 @@
       height: 150px;
       margin: 2% 4%;
       padding: 1.5em;
+      float: left;
       text-align: center;
       border: 3px solid $black;
       border-radius: 50%;
@@ -26,32 +27,24 @@
         font-size: 4em;
       }
     }
-    nav ul {
-      width: 60%;
+    nav {
+      width: 25%;
+      margin: 4% 4%;
       float: right;
-      font-family: $content;
-      font-size: 1em;
-      text-align: right;
-      list-style: none;
-      padding: 0;
-      li {
-        position: relative;
-        float: right;
-        margin: 0 2%;
-        font-size: 2em;
+      ul {
+        margin: 0;
+        font-family: $content;
+        text-align: right;
+        li {
+          position: relative;
+          margin: 2% 0;
+          font-size: 2em;
+        }
+        li:hover {
+          color: $blue;
+          cursor: pointer;
+        }
       }
-      li:hover {
-        color: $blue;
-        cursor: pointer;
-        text-decoration: underline;
-      }
-    }
-    .custom-headers {
-      position: fixed;
-      right: 0;
-      top: 0;
-      width: 300px;
-      text-align: right;
     }
   }
 }
