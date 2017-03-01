@@ -17,12 +17,12 @@ function controller(Neighborhood, $state) {
 
   this.reset = () => this.newNeighborhood = {};
 
-  // this.$onInit = () => {
-  //   if(!this.selected && this.neighborhoods.length) {
-  //     this.selected = this.neighborhoods[0]._id;
-  //   }
-  //   this.setNeighborhood();
-  // };
+  this.$onInit = () => {
+    if(!this.selected && this.neighborhoods.length) {
+      this.selected = this.neighborhoods;
+    }
+    this.setNeighborhood();
+  };
 
   this.reset();
 
@@ -33,13 +33,13 @@ function controller(Neighborhood, $state) {
 
   this.setNeighborhood = () => {
     if (!this.selected) return;
-    $state.go('portland.neighborhood.restaurants', { id: this.selected });
+    $state.go('portland.neighborhood', { id: this.selected });
   };
 
   this.addNeighborhood = () => {
     new Neighborhood(this.newNeighborhood).$save()
       .then(neighborhood => {
-        this.alert(neighborhood.name + ' has been added!');
+        // $window.alert(neighborhood.name + ' has been added!');
         this.neighborhoods.push(neighborhood);
         this.reset();
         this.selected = neighborhood._id;

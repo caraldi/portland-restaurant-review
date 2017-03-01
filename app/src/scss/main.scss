@@ -12,16 +12,16 @@ html, body {
   font-size: 1em;
   color: $black;
 }
+h1, h2, h3 {
+  margin: 1% 0;
+}
 ul {
   list-style: none;
   padding: 0;
 }
 button {
   border: none;
-  padding: .5em;
-  font-family: $content;
-  font-size: 1em;
 }
-button:hover {
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-}
+// button:hover {
+//   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+// }
