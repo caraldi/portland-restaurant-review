@@ -10,7 +10,7 @@ html, body {
   margin: 0;
   font-family: $content;
   font-size: 1em;
-  color: $black;
+  color: $blue;
 }
 h1, h2, h3 {
   margin: 1% 0;
@@ -21,6 +21,7 @@ ul {
 }
 button {
   border: none;
+  font-family: $content;
 }
 // button:hover {
 //   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);

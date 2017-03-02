@@ -1,14 +1,14 @@
 <section>
   <h2>{{ $ctrl.neighborhood.name }}</h2>
   <div class="add">
-    <button ng-click="add=!add" ng-hide="add">Add</button>
+    <button ng-click="add=!add" ng-hide="add">add</button>
   </div>
-  <section>
+  <section class="all-restaurants">
     <ui-view></ui-view>
   </section>
 
   <section ng-class="$ctrl.newRestaurant" ng-show="add">
-    <h3>Add a new restaurant in {{ $ctrl.neighborhood.name }}</h3>
+    <h3>Add restaurant for review in {{ $ctrl.neighborhood.name }}</h3>
     <form>
       <label>Name</label>
         <input ng-model="$ctrl.newRestaurant.name"><br>
