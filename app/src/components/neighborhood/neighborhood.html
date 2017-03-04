@@ -3,9 +3,6 @@
   <div class="add">
     <button ng-click="add=!add" ng-hide="add">add</button>
   </div>
-  <section class="all-restaurants">
-    <ui-view></ui-view>
-  </section>
 
   <section ng-class="$ctrl.newRestaurant" ng-show="add">
     <h3>Add restaurant for review in {{ $ctrl.neighborhood.name }}</h3>
@@ -21,5 +18,9 @@
     </form>
     <button ng-show="add" ng-click="$ctrl.addRestaurant()">Submit</button>
     <button ng-show="add" ng-click="add=!add">Go back</button>
+  </section>
+
+  <section class="all-restaurants">
+    <ui-view></ui-view>
   </section>
 </section>

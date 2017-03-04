@@ -32,6 +32,7 @@
     <ul>
       <li 
         ui-sref="portland.neighborhood({ id: neighborhood._id })"
+        ng-model="$ctrl.selected"
         ng-repeat="neighborhood in $ctrl.neighborhoods | orderBy: 'name'"
       >{{ neighborhood.name }}</li>
     </ul>

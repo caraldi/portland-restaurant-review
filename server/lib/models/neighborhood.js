@@ -10,7 +10,8 @@ const schema = new Schema({
     type: String,
     enum: ['N','NE','SE','SW','NW'],
     required: true
-  }
+  },
+  restaurants: []
 });
 
 module.exports = mongoose.model('Neighborhood', schema);

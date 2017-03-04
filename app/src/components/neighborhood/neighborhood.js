@@ -15,14 +15,14 @@ controller.$inject = ['restaurantService', '$state'];
 function controller(restaurantService, $state) {
   this.styles = styles;
 
-  this.removeNeighborhood = () => {
-    this.neighborhood.$remove().then(() => {
-      const _id = this.neighborhood._id;
-      const index = this.neighborhoods.findIndex(n => n._id === _id);
-      if (index > -1) this.neighborhoods.splice(index, 1);
-      $state.go('portland');
-    });
-  };
+  // this.removeNeighborhood = () => {
+  //   this.neighborhood.$remove().then(() => {
+  //     const _id = this.neighborhood._id;
+  //     const index = this.neighborhoods.findIndex(n => n._id === _id);
+  //     if (index > -1) this.neighborhoods.splice(index, 1);
+  //     $state.go('portland');
+  //   });
+  // };
 
   this.reset = () => {
     this.newRestaurant = {};
