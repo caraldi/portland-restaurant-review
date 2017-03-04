@@ -1,9 +1,0 @@
-<section ng-class="$ctrl.styles.listView">
-  <ul>
-    <li ng-repeat="restaurant in $ctrl.restaurants">
-        {{ restaurant.name }}
-        <!--{{ restaurant.avgRating }}-->
-      <button ng-click="$ctrl.parent.remove(restaurant)">X</button>
-    </li>
-  </ul>
-</section>

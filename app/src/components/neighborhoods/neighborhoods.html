@@ -1,40 +1,23 @@
 <section ng-class="$ctrl.styles.neighborhoods">
-  <div class="options">
-    <button ng-click="add=!add" ng-hide="add">add</button>
-    <section class="add-neighborhood" ng-show="add">
-      <div class="form">
-        <form>
-          <h3>add neighborhood</h3>
-          <label>name</label>
-            <input ng-model="$ctrl.newNeighborhood.name"><br>
-          <label>quadrant</label>
-            <input ng-model="$ctrl.newNeighborhood.quadrant"><br>
-        </form>
-        <div class="submit">
-          <button ng-show="add" ng-click="$ctrl.addNeighborhood()">submit</button>
-          <button ng-show="add" ng-click="add=!add">cancel</button>
-        </div>
-      </div>
-    </section>
+  <section class="add">
+    <add-new fields="name, quadrant" add="$ctrl.add"></add-new>
+  </section>
 
-    <button ng-click="filter=!filter" ng-hide="filter">filter</button>
-    <section class="quadrants" ng-show="filter">
-      <h3>filter</h3>
-      <select
-        ng-model="$ctrl.quadOptions"
-        ng-options="quadrant for quadrant in ['N', 'NE', 'NW', 'SE', 'SW']">
-      </select>
-      <button ng-show="filter" ng-click="filter=!filter">cancel</button>
-    </section>
-  </div>
+  <section class="quadrants">
+    <h3>filter</h3>
+    <select
+      ng-model="$ctrl.quadOptions"
+      ng-options="quadrant for quadrant in ['N', 'NE', 'NW', 'SE', 'SW']">
+    </select>
+  </section>
 
-  <div class="neighborhoods">
+  <section class="neighborhoods">
     <ul>
       <li 
-        ui-sref="portland.neighborhood({ id: neighborhood._id })"
-        ng-model="$ctrl.selected"
-        ng-repeat="neighborhood in $ctrl.neighborhoods | orderBy: 'name'"
-      >{{ neighborhood.name }}</li>
+        ui-sref="neighborhood({ id: neighborhood._id })"
+        ng-repeat="neighborhood in $ctrl.neighborhoods | orderBy: 'name'">
+        <span>{{ neighborhood.name }}</span>
+      </li>
     </ul>
-  </div>
+  </section>
 </section>

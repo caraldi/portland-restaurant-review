@@ -1,24 +1,14 @@
-Name: <input ng-model="search.name">
-Average Rating: <input ng-model="search.avg">
-
-{{ search | json }}
-
-<table ng-class="$ctrl.styles.detail-view">
+<table ng-class="$ctrl.styles.detail">
   <thead>
-    <tr>
-      <td>Index</td>
-      <td ng-repeat="property in ['name, avg']" ng-class="{ sorted: $ctrl.sort === property, desc: $ctrl.order }" ng-click="$ctrl.orderBy(property)"></td>
-      <td>X</td>
-    </tr>
+    <h3>details</h3>
   </thead>
   <tbody>
-    <tr ng-repeat="restaurant in $ctrl.restaurants | filter: search | orderBy: $ctrl.sort:$ctrl.order track by restaurant._id">
-      <td>{{ $index }}</td>
-      <td>{{ restaurant.name | titleCase }}</td>
-      <td>{{ restaurant.avg }}</td>
-      <td>
-        <button ng-click="$ctrl.parent.remove(restaurant)">X</button>
-      </td>
+    <tr ng-repeat="restaurant in $ctrl.restaurants">
+      <td>{{ restaurant.name }}</td>
+      <td>{{ restaurant.reviews }}</td>
+      <!--<td>
+        <button ng-click="$ctrl.parent.add(rating)">add review</button>
+      </td>-->
     </tr>
   </tbody>
 </table>

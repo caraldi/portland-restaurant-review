@@ -1,0 +1,16 @@
+<section>
+   <section class="all-restaurants">
+    <ul>
+      <li ng-repeat="restaurant in $ctrl.restaurants">
+      <span>
+        {{ restaurant.name }}
+        <!--{{ restaurant.avgStars }}-->
+        <button ng-if"$ctrl.remove" ng-click="$ctrl.delete">X</button>
+      </li>
+    </ul>
+  </section>
+
+  <section class="add">
+    <add-new fields="name, street, city, zip" add="$ctrl.addRestaurant"></add-new>
+  </section>
+</section>

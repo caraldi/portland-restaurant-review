@@ -15,17 +15,8 @@ export default function routes($stateProvider, $urlRouterProvider) {
   });
 
   $stateProvider.state({
-    name: 'portland',
+    name: 'neighborhoods',
     url: '/neighborhoods',
-    params: {
-      selected: {
-        dynamic: true
-      }
-    },
-    resolve: {
-      neighborhoods: ['neighborhoodService', Neighborhood => Neighborhood.query().$promise],
-      selected: ['$transition$', t => t.params().id]
-    },
     component: 'neighborhoods',
     views: {
       header: {
@@ -38,31 +29,40 @@ export default function routes($stateProvider, $urlRouterProvider) {
   });
 
   $stateProvider.state({
-    name: 'portland.neighborhood',
-    url: '/{id}',
-    abstract: true,
-    default: '.restaurants',
+    name: 'neighborhood',
+    url: '/neighborhoods/:id',
     resolve: {
-      id: ['$transition$', t => t.params().id],
-      neighborhood: ['neighborhoodService', '$transition$', (Neighborhood, t) => {
-        return Neighborhood.get({ id: t.params().id }).$promise;
+      neighborhood: ['neighborhoodService', '$transition$', (neighborhoods, t) => {
+        return neighborhoods.get(t.params().id);
       }],
-      restaurants: ['neighborhood', n => n.restaurants]
+      restaurants: ['neighborhood', neighborhood => neighborhood.restaurants]
     },
     component: 'neighborhood'
   });
 
   $stateProvider.state({
-    name: 'portland.neighborhood.restaurants',
-    url: '/restaurants',
-    component: 'listView'
-  });
-
-  $stateProvider.state({
-    name: 'portland.neighborhood.restaurant',
-    url: '/{id}',
+    name: 'neighborhood.detail',
+    url: '/detail',
     component: 'detailView'
   });
 
-  $urlRouterProvider.otherwise('/home');
+  $stateProvider.state({
+    name: 'restaurants',
+    url: '/restaurants',
+    abstract: true,
+    resolve: {
+      restaurants: ['restaurantService', restaurants => {
+        return restaurants.get();
+      }]
+    },
+    component: 'restaurants'
+  });
+
+  $stateProvider.state({
+    name: 'restaurants.detail',
+    url: '/:id',
+    component: 'detailView'
+  });
+
+  $urlRouterProvider.otherwise('/neighborhoods');
 }
