@@ -9,7 +9,9 @@ export default {
   require: {
     parent: '^neighborhood'
   },
-  controller() {
-    this.styles = styles;
-  }
+  controller
 };
+  
+function controller() {
+  this.styles = styles;
+}

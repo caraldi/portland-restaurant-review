@@ -13,6 +13,7 @@ router
 
   .get('/:id', (req, res, next) => {
     const id = req.params.id;
+
     Promise.all([
       Neighborhood.findById(id).lean(),
       Restaurant.find({ neighborhood: id }).lean()
@@ -39,13 +40,14 @@ router
       new: true,
       runValidators: true
     })
-    .then(saved => res.send(saved))
-    .catch(next);
+      .then(saved => res.send(saved))
+      .catch(next);
   })
 
   .delete('/:id', (req, res, next) => {
     const neighborhood = req.params.id;
-    Promise.all ([
+
+    Promise.all([
       Neighborhood.findByIdAndRemove(neighborhood),
       Restaurant.find({ neighborhood }).remove()
     ])

@@ -14,6 +14,7 @@ router
 
   .get('/:id', (req, res, next) => {
     const id = req.params.id;
+    
     Restaurant.findById(id)
       .lean()
       .then(restaurant => {

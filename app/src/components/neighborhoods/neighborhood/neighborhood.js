@@ -33,10 +33,12 @@ function controller(restaurantService, $state) {
   this.add = () => {
     const neighborhood = this.neighborhood;
     const restaurant = this.newRestaurant;
+
     restaurant.neighborhood = neighborhood._id;
     restaurantService.add(restaurant)
       .then(saved => {
         neighborhood.restaurants.push(saved);
+        console.log(neighborhood.restaurants);
         this.reset();
       })
       .catch(err => console.error(err));
