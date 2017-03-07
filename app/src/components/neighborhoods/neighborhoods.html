@@ -1,5 +1,5 @@
 <section ng-class="$ctrl.styles.neighborhoods">
-  <div class="options">
+  <!--<div class="options">
     <button ng-click="add=!add" ng-hide="add">add</button>
     <section class="add-neighborhood" ng-show="add">
       <div class="form">
@@ -26,12 +26,16 @@
       </select>
       <button ng-show="filter" ng-click="filter=!filter">cancel</button>
     </section>
+  </div>-->
+
+  <div class="restaurants">
+    <ui-view></ui-view>
   </div>
 
   <div class="neighborhoods">
     <ul>
       <li 
-        ui-sref="portland.neighborhood({ id: neighborhood._id })"
+        ui-sref="neighborhoods.neighborhood({ id: neighborhood._id })"
         ng-model="$ctrl.selected"
         ng-repeat="neighborhood in $ctrl.neighborhoods | orderBy: 'name'"
       >{{ neighborhood.name }}</li>

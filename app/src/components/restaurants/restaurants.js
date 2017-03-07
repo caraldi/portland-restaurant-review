@@ -1,5 +1,5 @@
-import template from './list-view.html';
-import styles from './list-view.scss';
+import template from './restaurants.html';
+import styles from './restaurants.scss';
 
 export default {
   template,

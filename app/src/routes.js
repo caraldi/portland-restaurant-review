@@ -15,7 +15,7 @@ export default function routes($stateProvider, $urlRouterProvider) {
   });
 
   $stateProvider.state({
-    name: 'portland',
+    name: 'neighborhoods',
     url: '/neighborhoods',
     params: {
       selected: {
@@ -38,7 +38,7 @@ export default function routes($stateProvider, $urlRouterProvider) {
   });
 
   $stateProvider.state({
-    name: 'portland.neighborhood',
+    name: 'neighborhoods.neighborhood',
     url: '/{id}',
     abstract: true,
     default: '.restaurants',
@@ -53,13 +53,13 @@ export default function routes($stateProvider, $urlRouterProvider) {
   });
 
   $stateProvider.state({
-    name: 'portland.neighborhood.restaurants',
+    name: 'neighborhoods.neighborhood.restaurants',
     url: '/restaurants',
-    component: 'listView'
+    component: 'restaurants'
   });
 
   $stateProvider.state({
-    name: 'portland.neighborhood.restaurant',
+    name: 'neighborhoods.neighborhood.restaurant',
     url: '/{id}',
     component: 'detailView'
   });
