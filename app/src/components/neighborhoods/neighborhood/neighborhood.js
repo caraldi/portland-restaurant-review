@@ -38,7 +38,6 @@ function controller(restaurantService, $state) {
     restaurantService.add(restaurant)
       .then(saved => {
         neighborhood.restaurants.push(saved);
-        console.log(neighborhood.restaurants);
         this.reset();
       })
       .catch(err => console.error(err));

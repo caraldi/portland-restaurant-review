@@ -16,7 +16,13 @@ router
 
     Promise.all([
       Neighborhood.findById(id).lean(),
-      Restaurant.find({ neighborhood: id }).lean()
+      Restaurant.find({ neighborhood: id }).lean(),
+      Restaurant.aggregate([
+        {$group: {
+          _id: "neighborhoodId",
+          count: {$sum: 1}
+        }}
+      ])
     ])
     .then(([ neighborhood, restaurants ]) => {
       if (!neighborhood) throw {
